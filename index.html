@@ -32,7 +32,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: clamp(16px, 4vw, 40px);
     }
 
     .card {
@@ -42,13 +42,13 @@
       backdrop-filter: blur(18px);
       border-radius: 18px;
       border: 1px solid var(--border);
-      padding: 40px 32px;
+      padding: clamp(28px, 6vw, 44px);
       text-align: center;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
     }
 
     h1 {
-      font-size: 2.6rem;
+      font-size: clamp(2rem, 6vw, 2.6rem);
       font-weight: 700;
       letter-spacing: 0.04em;
       margin-bottom: 12px;
@@ -56,7 +56,7 @@
     }
 
     .subtitle {
-      font-size: 1.05rem;
+      font-size: clamp(0.95rem, 3.5vw, 1.05rem);
       color: var(--text-sub);
       margin-bottom: 28px;
       line-height: 1.6;
@@ -80,10 +80,11 @@
       text-decoration: none;
       color: var(--text-main);
       border: 1px solid var(--border);
-      padding: 12px 16px;
+      padding: 14px 18px;
       border-radius: 12px;
       transition: all 0.25s ease;
       background: rgba(255, 255, 255, 0.05);
+      font-size: 1rem;
     }
 
     .links a:hover {
@@ -99,12 +100,18 @@
       opacity: 0.8;
     }
 
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 2.1rem;
+    /* 📱 超小屏手机 */
+    @media (max-width: 360px) {
+      .links a {
+        font-size: 0.95rem;
+        padding: 12px 14px;
       }
+    }
+
+    /* 💻 桌面端增强 */
+    @media (min-width: 900px) {
       .card {
-        padding: 32px 22px;
+        max-width: 560px;
       }
     }
   </style>
